@@ -1,4 +1,4 @@
-/* ===================== 全局基础样式 ===================== */
+/* ========= 全局基础 ========= */
 * {
   box-sizing: border-box;
 }
@@ -7,8 +7,9 @@ body {
   margin: 0;
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  color: #222222;
-  background-color: #f5f3ff;      /* 很浅的紫色背景 */
+  color: #222;
+  /* 柔和卡其色背景 */
+  background: #f5efe5;
   line-height: 1.6;
 }
 
@@ -24,12 +25,15 @@ a {
   padding: 0 1.5rem;
 }
 
-/* ===================== 顶部导航栏 ===================== */
+.main {
+  padding: 2.5rem 0 3rem;
+}
 
+/* ========= 顶部导航栏 ========= */
 .site-header {
-  background-color: #e4defc;     /* 比背景略深的紫色条 */
-  color: #111111;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  background-color: #c2a684;   /* 比背景更深一点的卡其色 */
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .header-inner {
@@ -53,42 +57,37 @@ a {
 .nav-link {
   font-size: 0.95rem;
   opacity: 0.9;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
   border-bottom: 2px solid transparent;
-  transition: color 0.18s ease, opacity 0.18s ease, border-color 0.18s ease;
 }
 
 .nav-link:hover {
   opacity: 1;
-  color: #5b4fd8;                /* hover 也用主紫色 */
 }
 
 .nav-link.active {
   font-weight: 500;
-  color: #5b4fd8;                /* 当前页面文字变紫 */
-  border-bottom-color: #5b4fd8;  /* 下划线也变紫 */
+  border-bottom-color: #f08a4b;   /* 橙色小下划线 */
 }
 
-/* ===================== 首页：上方简介卡片 ===================== */
+/* ========= 首页：大卡片 + 头像 ========= */
 
-/* section 本身带 container，所以这里就是“卡片”本体 */
-.hero {
+.hero-card {
+  margin-top: 2.5rem;
+  padding: 2.5rem 3rem;
+  background: #ffffff;
+  border-radius: 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2.5rem;
-  margin-top: 2.5rem;
-  padding: 3rem 3rem 2.5rem;
-
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.08);
+  gap: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .hero-text h1 {
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   margin: 0 0 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .hero-subtitle {
@@ -101,15 +100,14 @@ a {
 .hero-photo img {
   width: 260px;
   max-width: 100%;
-  border-radius: 16px;
+  border-radius: 18px;
   display: block;
-  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.22);
 }
 
-/* ===================== 首页：底部 welcome 区 ===================== */
+/* ========= 首页结尾欢迎区域 ========= */
 
 .welcome {
-  padding: 2.5rem 0 3.5rem;
+  padding: 2.5rem 0 3rem;
 }
 
 .welcome h2 {
@@ -117,14 +115,14 @@ a {
   margin-bottom: 0.8rem;
 }
 
-/* ===================== 页脚 ===================== */
+/* ========= 页脚 ========= */
 
 .site-footer {
-  border-top: 1px solid #ddd6fe;
-  padding: 0.9rem 0;
+  border-top: 1px solid #e3d7c3;
+  padding: 0.75rem 0;
   font-size: 0.85rem;
   color: #555;
-  background-color: #f5f3ff;
+  background: #f1e6d8;
 }
 
 .footer-inner {
@@ -133,7 +131,92 @@ a {
   gap: 1rem;
 }
 
-/* ===================== 响应式：手机端 ===================== */
+/* ========= About 页：顶部照片 ========= */
+
+/* 你在 about.html 里用的就是这个 class，把大图缩小成合适横幅 */
+.about-photo-large img {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 18px;
+  display: block;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* ========= About 页：CV 各区块布局 ========= */
+
+/* 整个 CV 某一栏（About Me / Education / Scholarships / Activities） */
+.cv-section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/* Section 标题（比如 Education） */
+.section-title {
+  font-size: 1.5rem;
+  margin: 0 0 25px;
+}
+
+/* Education 中每一条经历块 */
+.cv-item {
+  margin-bottom: 35px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e0d0bb;
+}
+
+.cv-item:last-child {
+  border-bottom: none;
+}
+
+/* 圆角时间 pill */
+.cv-time {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #7a4c21;
+  background: #f3dfc2;
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-block;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.cv-text p {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+/* Scholarships & Awards 小圆角时间（内联） */
+.cv-list {
+  padding-left: 1.2rem;
+}
+
+.cv-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.cv-time-inline {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #f3dfc2;
+  color: #7a4c21;
+  border-radius: 12px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+/* Professional activities 有序列表 */
+.cv-ordered {
+  padding-left: 1.2rem;
+}
+
+.cv-ordered li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* ========= 响应式：手机端 ========= */
 
 @media (max-width: 768px) {
   .header-inner {
@@ -144,10 +227,10 @@ a {
     gap: 0.5rem;
   }
 
-  .hero {
+  .hero-card {
     flex-direction: column-reverse;
     text-align: left;
-    padding: 2rem 1.5rem 2.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .hero-text h1 {
@@ -158,79 +241,4 @@ a {
     flex-direction: column;
     align-items: flex-start;
   }
-}
-
-/* ===================== About 页：CV 版式 ===================== */
-
-/* 各个大板块之间的间距 */
-.cv-section {
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-
-/* 圆角时间 pill */
-.cv-time {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #5b4fd8;
-  background: #e5defe;
-  padding: 6px 14px;
-  border-radius: 20px;
-  display: inline-block;
-  white-space: nowrap;
-  margin-bottom: 10px;
-}
-
-/* 单条经历 */
-.cv-item {
-  margin-bottom: 35px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid #e5e5f5;
-}
-
-.cv-item:last-child {
-  border-bottom: none;
-}
-
-.cv-text p {
-  margin: 4px 0;
-  line-height: 1.6;
-}
-
-/* section 标题和内容之间的间距 */
-.section-title {
-  margin-bottom: 25px;
-}
-
-/* 奖学金 & Awards 列表 */
-.cv-list li {
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-/* 行内小 pill（比如年份） */
-.cv-time-inline {
-  display: inline-block;
-  padding: 3px 10px;
-  background: #ebe5ff;
-  color: #5b4fd8;
-  border-radius: 12px;
-  margin-right: 10px;
-  font-weight: 600;
-}
-
-/* Professional activities 有序列表 */
-.cv-ordered li {
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-/* About 页顶部大照片 */
-.about-photo-large img {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 14px;
-  display: block;
-  margin: 0 auto 40px auto;
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
 }
