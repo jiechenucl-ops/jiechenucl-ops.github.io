@@ -1,0 +1,143 @@
+/* 全局基础样式 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #222;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 通用容器，限制宽度居中 */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* 顶部导航栏 */
+.site-header {
+  background-color: #1f6fb2; /* 类似对方那个蓝色 */
+  color: #ffffff;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.site-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* 导航链接 */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link.active {
+  font-weight: 500;
+  border-bottom-color: #ffffff;
+}
+
+/* 首页：左文字右照片 */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 0 2rem;
+  gap: 2rem;
+}
+
+.hero-text h1 {
+  font-size: 2.3rem;
+  margin: 0 0 1rem;
+  font-weight: 500;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* 右侧照片 */
+.hero-photo img {
+  width: 260px;
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* 欢迎区域 */
+.welcome {
+  padding: 1.5rem 0 3rem;
+}
+
+.welcome h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+/* 页脚 */
+.site-footer {
+  border-top: 1px solid #e3e3e3;
+  padding: 0.75rem 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* 响应式：手机上上下排布 */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+    height: auto;
+    gap: 0.5rem;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: left;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
