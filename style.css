@@ -1,15 +1,13 @@
-/* ========== 全局基础风格：Warm Minimal Beige ========== */
-
+/* ========= 全局基础样式 ========= */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #222;
-  background-color: #f7f4ef; /* 柔和米色背景 */
+  background-color: #f5f1eb;  /* 温柔米色背景 */
   line-height: 1.6;
 }
 
@@ -18,45 +16,38 @@ a {
   color: inherit;
 }
 
-/* 通用容器 */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-
-/* ========== 顶部导航栏 ========== */
-
+/* ========= 导航栏（深卡其色） ========= */
 .site-header {
-  background-color: #d4cfc6;  /* 深一点的卡其灰（风格 A 最适配） */
+  background-color: #c5b8a4;  /* 深卡其色，视觉稳重明显 */
   color: #222;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 64px;
+  align-items: center;
 }
 
 .site-title {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
+/* 导航链接 */
 .nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .nav-link {
   font-size: 0.95rem;
   opacity: 0.85;
-  padding-bottom: 4px;
+  padding-bottom: 3px;
   border-bottom: 2px solid transparent;
-  transition: 0.25s;
 }
 
 .nav-link:hover {
@@ -65,141 +56,94 @@ a {
 
 .nav-link.active {
   font-weight: 500;
-  border-bottom-color: #7a6f66;  /* 深一点的暖灰色 underline */
+  border-bottom-color: #7a5f48; /* 深咖啡色高亮，与卡其协调 */
 }
 
-
-/* ========== 首页：文字 + 照片卡片 ========== */
-
-.hero {
+/* ========= Hero 区域卡片 ========= */
+.hero-card {
+  max-width: 1200px;
+  margin: 2.5rem auto 3rem;
+  padding: 2.5rem 3rem;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 3rem 0 2rem;
   gap: 2rem;
 }
 
 .hero-text h1 {
   font-size: 2.3rem;
+  font-weight: 600;
   margin: 0 0 1rem;
-  font-weight: 500;
 }
 
-.hero-subtitle {
+.hero-text p {
+  max-width: 560px;
   font-size: 1.05rem;
-  max-width: 520px;
-  margin: 0;
 }
 
 .hero-photo img {
   width: 260px;
-  max-width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
-  display: block;
+  border-radius: 16px;
+  box-shadow: 0px 8px 28px rgba(0,0,0,0.15);
 }
 
-
-/* ========== 卡片区（About 页使用） ========== */
-
-.card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 2.2rem;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.09);
-  margin-bottom: 2rem;
+/* ========= 主体内容 ========= */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
 }
 
-
-/* ========== 页面通用排版 ========== */
-
-.section-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 14px;
+section {
+  margin: 3rem 0;
 }
 
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ========= 页脚 ========= */
 .site-footer {
-  border-top: 1px solid #e3e3e3;
-  padding: 0.75rem 0;
-  font-size: 0.85rem;
+  margin-top: 4rem;
+  padding: 1rem 0;
+  font-size: 0.9rem;
   color: #555;
+  border-top: 1px solid #ddd;
 }
 
 .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  padding: 0 1.5rem;
 }
 
-
-/* ========== CV Section 样式（Education / Honors） ========== */
-
-.cv-section {
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-
-.cv-item {
-  margin-bottom: 35px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid #e0ddd8;
-}
-
-.cv-item:last-child {
-  border-bottom: none;
-}
-
-.cv-time {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #7a6f66;
-  background: #ebe6df;
-  padding: 6px 14px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.cv-text p {
-  margin: 4px 0;
-}
-
-
-/* ========== About 页面照片 ========== */
-
-.about-photo-large img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: 14px;
-  display: block;
-  margin: 0 auto 40px auto;
-  box-shadow: 0px 4px 18px rgba(0,0,0,0.15);
-}
-
-
-/* ========== RWD 手机适配 ========== */
-
+/* ========= 响应式 ========= */
 @media (max-width: 768px) {
+  .hero-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-photo img {
+    width: 200px;
+  }
+
   .header-inner {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0.5rem 0;
-    height: auto;
     gap: 0.5rem;
   }
 
-  .hero {
-    flex-direction: column-reverse;
-    text-align: left;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
+  .nav {
+    gap: 1.2rem;
   }
 }
