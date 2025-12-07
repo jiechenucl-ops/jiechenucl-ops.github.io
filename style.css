@@ -242,3 +242,23 @@ a {
     align-items: flex-start;
   }
 }
+/* ========= Research 页：Publications ========= */
+
+.publications-section {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.pub-list {
+  padding-left: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.pub-list li {
+  margin-bottom: 0.9rem;
+}
+
+.pub-journal {
+  font-style: italic;
+}
