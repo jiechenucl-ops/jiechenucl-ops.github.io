@@ -1,4 +1,4 @@
-/* ========== Global base styles ========== */
+/* 全局基础样式 */
 * {
   box-sizing: border-box;
 }
@@ -7,8 +7,8 @@ body {
   margin: 0;
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  color: #222222;
-  background-color: #fbf7f2; /* 柔和一点的暖米色背景 */
+  color: #222;
+  background-color: #faf7f2; /* 柔和米色背景，更高级 */
   line-height: 1.6;
 }
 
@@ -24,10 +24,20 @@ a {
   padding: 0 1.5rem;
 }
 
-/* ========== 顶部导航栏 ========== */
+/* =============================
+   顶部导航栏：透明毛玻璃风格 A
+   ============================= */
 .site-header {
-  background-color: #3f2b63;  /* 深紫色导航条，避免和蓝色撞色 */
-  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  color: #3f2b63; /* 深紫色标题 */
 }
 
 .header-inner {
@@ -40,9 +50,10 @@ a {
 .site-title {
   font-weight: 600;
   font-size: 1.1rem;
+  color: #3f2b63;
 }
 
-/* 导航链接 */
+/* ===== 导航链接 ===== */
 .nav {
   display: flex;
   gap: 1.5rem;
@@ -50,22 +61,24 @@ a {
 
 .nav-link {
   font-size: 0.95rem;
-  opacity: 0.9;
+  opacity: 0.8;
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
-  transition: opacity 0.15s ease, border-color 0.15s ease;
+  transition: 0.2s;
 }
 
 .nav-link:hover {
   opacity: 1;
+  color: #5c3fa3; /* 紫色 hover */
 }
 
 .nav-link.active {
-  font-weight: 500;
-  border-bottom-color: #ffd78a; /* 柔和金色高亮 */
+  font-weight: 600;
+  color: #5c3fa3;
+  border-bottom-color: #5c3fa3; /* 下划线紫色 */
 }
 
-/* ========== 首页：左文字右照片 ========== */
+/* 首页：左文字右照片 */
 .hero {
   display: flex;
   align-items: center;
@@ -86,16 +99,15 @@ a {
   margin: 0;
 }
 
-/* 右侧照片（Home 页头像） */
+/* 右侧照片 */
 .hero-photo img {
   width: 260px;
   max-width: 100%;
-  border-radius: 14px;
+  border-radius: 12px;
   display: block;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* ========== 欢迎区域（Home 下半部分） ========== */
+/* 欢迎区域 */
 .welcome {
   padding: 1.5rem 0 3rem;
 }
@@ -105,13 +117,12 @@ a {
   margin-bottom: 0.8rem;
 }
 
-/* ========== 页脚 ========== */
+/* 页脚 */
 .site-footer {
-  border-top: 1px solid #e3d9d0;
+  border-top: 1px solid #e3e3e3;
   padding: 0.75rem 0;
   font-size: 0.85rem;
-  color: #555555;
-  background: #faf2e9;
+  color: #555;
 }
 
 .footer-inner {
@@ -120,7 +131,75 @@ a {
   gap: 1rem;
 }
 
-/* ========== 响应式：手机上上下排布 ========== */
+/* =============================
+   About 页：大图 + CV 区域
+   ============================= */
+
+/* About 页顶部大图 */
+.about-photo-large img {
+  width: 100%;
+  max-width: 620px;
+  border-radius: 14px;
+  display: block;
+  margin: 60px auto 50px auto;
+  box-shadow: 0px 4px 18px rgba(0,0,0,0.18);
+}
+
+/* 区块统一间距 */
+.cv-section {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.section-title {
+  margin-bottom: 25px;
+  font-size: 1.45rem;
+  color: #3f2b63;
+  font-weight: 600;
+}
+
+/* 时间圆角 pill */
+.cv-time {
+  font-weight: 600;
+  font-size: 0.90rem;
+  color: #5c3fa3;
+  background: #efe9ff;
+  padding: 6px 14px;
+  border-radius: 18px;
+  display: inline-block;
+  white-space: nowrap;
+  margin-bottom: 12px;
+}
+
+/* Education / Summer School 每条记录 */
+.cv-item {
+  margin-bottom: 35px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.cv-item:last-child {
+  border-bottom: none;
+}
+
+.cv-text p {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+/* 奖项列表 */
+.cv-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* 专业活动 */
+.cv-ordered li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* 移动端适配 */
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
@@ -143,79 +222,4 @@ a {
     flex-direction: column;
     align-items: flex-start;
   }
-}
-
-/* ========== CV 通用 section 间距 ========== */
-.cv-section {
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-
-/* 标题稍微和正文拉开一点 */
-.section-title {
-  margin-bottom: 25px;
-}
-
-/* ========== 圆角时间 pill ========== */
-.cv-time {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #5c3fa3;           /* 深一点的紫色文字 */
-  background: #f2eafe;      /* 淡紫底色 */
-  padding: 6px 14px;
-  border-radius: 999px;
-  display: inline-block;
-  white-space: nowrap;
-  margin-bottom: 10px;
-}
-
-/* 用于行内时间 pill（例如奖学金列表） */
-.cv-time-inline {
-  display: inline-block;
-  padding: 3px 10px;
-  background: #f4ebff;
-  color: #5c3fa3;
-  border-radius: 999px;
-  margin-right: 10px;
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-/* ========== 单条 CV 条目布局（Education 等） ========== */
-.cv-item {
-  margin-bottom: 35px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid #e5ded6;
-}
-
-.cv-item:last-child {
-  border-bottom: none;
-}
-
-.cv-text p {
-  margin: 4px 0;
-  line-height: 1.6;
-}
-
-/* ========== 奖学金 / Honors 列表 ========== */
-.cv-list li {
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-/* ========== Professional Activities（有序列表） ========== */
-.cv-ordered li {
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-/* ========== About 页顶部大照片 ========== */
-/* 容器类：about.html 里外面可以写 <div class="about-photo-large"> */
-.about-photo-large img {
-  width: 100%;
-  max-width: 420px;              /* 比之前 600px 小一圈 */
-  border-radius: 14px;
-  display: block;
-  margin: 0 auto 40px auto;      /* 居中，底部留一点空间 */
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
