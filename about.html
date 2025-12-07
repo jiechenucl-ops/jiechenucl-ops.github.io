@@ -7,9 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- Navbar -->
+  <!-- 顶部导航栏，和首页保持一致 -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="site-title">Jie Chen</div>
@@ -23,78 +22,185 @@
   </header>
 
   <main>
-    <!-- Top Photo + Intro -->
-    <section class="about-hero container">
-      <div class="about-photo-large">
-        <img src="about-photo.jpg" alt="Jie Chen at conference">
-      </div>
-
-      <div class="about-intro">
-        <h1>About Me</h1>
-        <p>
-          I am Jie Chen, a PhD student at University College London (UCL). 
-          My research integrates electrochemistry, interfacial water chemistry, 
-          X-ray computed tomography (CT), and data-driven analysis to understand 
-          water-mediated charge transfer and failure mechanisms in aqueous zinc systems.
-        </p>
-
-        <p>
-          I enjoy interdisciplinary research combining experiments, imaging, 
-          and modelling, with the goal of advancing fundamental understanding 
-          and improving reliability in aqueous electrochemical technologies.
-        </p>
-      </div>
+    <!-- 顶部大照片 -->
+    <section class="container about-hero">
+      <img
+        src="Conference 2024SSCI.jpg"
+        alt="Jie Chen at conference"
+        class="about-hero-photo"
+      />
     </section>
 
-    <!-- Research Interests -->
-    <section class="about-section container">
-      <h2 class="section-title">Research Interests</h2>
-      <ul class="about-list">
-        <li>• Aqueous zinc-ion batteries</li>
-        <li>• Interfacial water chemistry & charge transfer</li>
-        <li>• X-ray computed tomography (CT) & AI segmentation</li>
-        <li>• Separator degradation & dendrite–separator interaction</li>
-        <li>• Water-mediated reaction mechanisms in electrochemical systems</li>
-      </ul>
+    <!-- About Me（按你 CV 开头） -->
+    <section class="container about-content">
+      <h1 class="page-title">About Me</h1>
+
+      <div class="about-header-block">
+        <p><strong>Mr Jie Chen &nbsp;&nbsp;&nbsp; BSc, MSc</strong></p>
+        <p>Department of Chemistry<br>
+           University College London
+        </p>
+        <p>
+          Mobile phone: +44-7487523824<br>
+          E-mail: <a href="mailto:uccahez@ucl.ac.uk">uccahez@ucl.ac.uk</a>
+        </p>
+        <p>
+          Google Scholar website:<br>
+          <a href="https://scholar.google.com/citations?user=e0QdE5MAAAAJ&hl=zh-CN" target="_blank">
+            https://scholar.google.com/citations?user=e0QdE5MAAAAJ&hl=zh-CN
+          </a>
+        </p>
+        <p>
+          LinkedIn website:<br>
+          <a href="https://www.linkedin.com/in/jie-chen-08a34b28/" target="_blank">
+            https://www.linkedin.com/in/jie-chen-08a34b28/
+          </a>
+        </p>
+      </div>
+
+      <p>
+        Jie Chen is currently a PhD candidate in the Department of Chemistry at University College
+        London (UCL), supervised by Prof Guanjie He and Professor Ivan Parkin. He obtained his
+        bachelor's and master's degrees in physics from Lanzhou University, and served as the visiting
+        student at Fudan University. His research interests mainly focus on the interface between
+        electrodes and electrolytes in aqueous batteries, as well as aqueous batteries and
+        interdisciplinary research across multiple fields (electrocatalysis, interfacial aqueous
+        chemistry, X-ray computed tomography, machine learning).
+      </p>
     </section>
 
-    <!-- Education -->
-    <section class="about-section container">
+    <!-- Education + Summer School -->
+    <section class="container cv-section">
       <h2 class="section-title">Education</h2>
-      <ul class="about-timeline">
-        <li class="about-item">
-          <div class="about-item-main"><strong>PhD in Chemical Engineering</strong>, University College London (UCL)</div>
-          <div class="about-meta">2023 – Present</div>
-        </li>
-      </ul>
+
+      <div class="cv-item">
+        <div class="cv-time">2023.11 – Current</div>
+        <div class="cv-text">
+          <p><strong>Ph.D student in Chemistry</strong></p>
+          <p>Department of Chemistry, University College London (UCL), U.K.</p>
+          <p>
+            Principal Supervisor: Prof. Guanjie He &nbsp;&nbsp;&nbsp;
+            Subsidiary Supervisor: Prof. Ivan. Parkin
+          </p>
+          <p>Awarded CDT scholarship</p>
+        </div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-time">2020.09 – 2023.06</div>
+        <div class="cv-text">
+          <p><strong>MSc. in Physics</strong></p>
+          <p>School of Materials and Energy, Lanzhou University (LZU), China</p>
+          <p>
+            Principle Supervisor: Prof. Shanglong Peng &nbsp;&nbsp;&nbsp;
+            Subsidiary Supervisor: Prof. Juanjuan Huang
+          </p>
+          <p>GPA: 88.38/100; Rank: Top 5% in the major</p>
+          <p>
+            Awarded National Scholarship, College Graduate Excellence Award of Gansu Province
+          </p>
+        </div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-time">2016.09 – 2020.06</div>
+        <div class="cv-text">
+          <p>
+            <strong>
+              BSc. in Physics (The National Base For Fostering Talents In Basic Science)
+            </strong>
+          </p>
+          <p>School of Physical Science and Technology, Lanzhou University (LZU), China</p>
+          <p>
+            Principle Supervisor: Prof. Shanglong Peng &nbsp;&nbsp;&nbsp;
+            Subsidiary Supervisor: Prof. Juanjuan Huang
+          </p>
+          <p>GPA: 86.52/100; Rank: Top 10% in the major</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Summer School</h2>
+
+      <div class="cv-item">
+        <div class="cv-time">2018.08.13 – 2018.08.31</div>
+        <div class="cv-text">
+          <p><strong>Summer English Course</strong>, University College London (UCL), U.K.</p>
+          <p>
+            Centre for Languages &amp; International Education, University College London, U.K.
+          </p>
+        </div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-time">2017.07.31 – 2017.08.13</div>
+        <div class="cv-text">
+          <p>
+            <strong>Canadian ESL and Cultural Experience</strong>, Kwantlen Polytechnic University
+            (KPU), Canada
+          </p>
+          <p>
+            ZenTec Learning, Kwantlen Polytechnic University Campus, Canada
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- Honors -->
-    <section class="about-section container">
-      <h2 class="section-title">Honors & Awards</h2>
-      <ul class="about-list">
-        <li>• [Award 1]</li>
-        <li>• [Award 2]</li>
-        <li>• [Award 3]</li>
+    <!-- Scholarships & Awards -->
+    <section class="container cv-section">
+      <h2 class="section-title">Scholarships &amp; Awards</h2>
+      <ul class="cv-list">
+        <li><span class="cv-time-inline">2024.02</span> CDT (Centres for Doctoral Training) Scholarship of UKRI (20000 GBP)</li>
+        <li><span class="cv-time-inline">2023.12</span> Excellent Graduation Thesis in Gansu Province</li>
+        <li><span class="cv-time-inline">2023.12</span> Excellent Graduation Thesis in Lanzhou University</li>
+        <li><span class="cv-time-inline">2023.06</span> College Graduate Excellence Award of Gansu Province</li>
+        <li><span class="cv-time-inline">2023.06</span> College Graduate Excellence Award of Lanzhou University</li>
+        <li><span class="cv-time-inline">2022.12</span> National Scholarship (20,000 RMB)</li>
+        <li><span class="cv-time-inline">2021.12</span> Second-level Scholarship of Lanzhou University (10,000 RMB)</li>
+        <li><span class="cv-time-inline">2020.12</span> First-level Scholarship of Lanzhou University (12,000 RMB)</li>
+        <li><span class="cv-time-inline">2020.06</span> Excellent Graduation Thesis in Lanzhou University</li>
+        <li><span class="cv-time-inline">2019.12</span> Third-level Scholarship of Lanzhou University (1,500 RMB)</li>
+        <li><span class="cv-time-inline">2018.12</span> Excellent members of the college</li>
+        <li><span class="cv-time-inline">2017.12</span> Third-level Scholarship of Lanzhou University (1,500 RMB)</li>
       </ul>
     </section>
 
     <!-- Professional Activities -->
-    <section class="about-section container">
+    <section class="container cv-section">
       <h2 class="section-title">Professional Activities</h2>
-      <ul class="about-timeline">
-        <li class="about-item">
-          <div class="about-item-main"><strong>Graduate Researcher, UCL</strong></div>
-          <div class="about-meta">2023 – Present</div>
-          <div class="about-desc">
-            Interdisciplinary research combining electrochemistry, water chemistry, CT imaging, and modelling.
-          </div>
+      <ol class="cv-ordered">
+        <li>
+          Invited speaker in multiple research groups (e.g. in the Lanzhou University of
+          Technology, 2022.7).
         </li>
+        <li>
+          Participated in two times large-scale academic international conferences:<br>
+          Name: The 2nd Silk Road New Energy Materials and Devices Academic Seminar; time:
+          2019.7.8–2019.7.10.<br>
+          Website:
+          <a href="http://sczlnewenergymaterialsanddevices.mikecrm.com/TjRDPdw" target="_blank">
+            http://sczlnewenergymaterialsanddevices.mikecrm.com/TjRDPdw
+          </a><br>
+          Name: The 12th International Conference on Advanced Fibers and Polymer Materials,
+          ICAFPM 2025; time: 2025.10.31–2025.11.3.<br>
+          Website:
+          <a href="https://icafpm2025.scimeeting.cn/" target="_blank">
+            https://icafpm2025.scimeeting.cn/
+          </a>
+        </li>
+        <li>
+          Invited Referee for &gt;100 scientific papers in journals including: Nature Communication,
+          Angewandte Chemie International Edition, Advanced Materials, etc.
+        </li>
+      </ol>
+    </section>
 
-        <li class="about-item">
-          <div class="about-item-main"><strong>Supervision & mentoring of MSc / visiting students</strong></div>
-          <div class="about-meta">UCL</div>
-        </li>
+    <!-- Special Skills Certificates -->
+    <section class="container cv-section">
+      <h2 class="section-title">Special Skills Certificates</h2>
+      <ul class="cv-list">
+        <li><span class="cv-time-inline">2020.03</span> Mass First Class Athlete in Marathon</li>
+        <li><span class="cv-time-inline">2018.06</span> Mandarin Level 2 Grade A</li>
+        <li><span class="cv-time-inline">2018.03</span> National Computer Rank Examination Level 2</li>
       </ul>
     </section>
   </main>
