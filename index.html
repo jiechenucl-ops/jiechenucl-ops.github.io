@@ -21,8 +21,8 @@
     </div>
   </header>
 
-  <!-- 主体区域：左文字右头像 -->
   <main>
+    <!-- 首页 Hero：左文字右头像，增加标签+按钮 -->
     <section class="hero container">
       <div class="hero-text">
         <h1>
@@ -36,23 +36,66 @@
           data-driven analysis to uncover mechanisms governing aqueous zinc
           batteries and electrochemical failure.
         </p>
+
+        <!-- 研究方向的小标签 -->
+        <div class="hero-tags">
+          <span class="hero-tag">Aqueous Zn batteries</span>
+          <span class="hero-tag">Interfacial water chemistry</span>
+          <span class="hero-tag">X-ray CT / AI</span>
+        </div>
+
+        <!-- 引导去 About 页的按钮 -->
+        <a class="hero-cta" href="about.html">
+          Learn more about me →
+        </a>
       </div>
 
-      <div class="hero-photo">
+      <!-- 右侧头像加一点浮动动画 -->
+      <div class="hero-photo hero-photo-float">
         <img src="https://github.com/jiechenucl-ops.png" alt="Jie Chen" />
       </div>
     </section>
 
-    <!-- 欢迎区域 -->
+    <!-- 三张小卡片：快速跳转到不同页面 -->
+    <section class="home-cards container">
+      <div class="home-card">
+        <h3>About</h3>
+        <p>
+          Brief academic background, education, scholarships, and
+          professional activities.
+        </p>
+        <a href="about.html" class="home-card-link">Go to About →</a>
+      </div>
+
+      <div class="home-card">
+        <h3>Research</h3>
+        <p>
+          Selected publications and ongoing projects on aqueous Zn batteries,
+          interfacial water, and CT/AI.
+        </p>
+        <a href="research.html" class="home-card-link">View Research →</a>
+      </div>
+
+      <div class="home-card">
+        <h3>Personal</h3>
+        <p>
+          A glimpse of life outside the lab, including photos and personal
+          moments.
+        </p>
+        <a href="personal.html" class="home-card-link">See Personal →</a>
+      </div>
+    </section>
+
+    <!-- 原来的 welcome 文案保留，放在卡片后面当一个小结 -->
     <section class="welcome container">
       <h2>Hello there! Welcome to my website!!</h2>
       <p>
-        Here you can find a brief introduction about myself, my interdisciplinary
-        research, selected publications, and a little bit of my life outside the lab.
+        Here you can find a brief introduction about myself, my interdisciplinary research,
+        selected publications, and a little bit of my life outside the lab.
       </p>
       <p>
-        Take a sip of coffee and feel free to explore the different pages using
-        the navigation bar above.
+        Take a sip of coffee and feel free to explore the different pages
+        using the navigation bar above.
       </p>
     </section>
   </main>
