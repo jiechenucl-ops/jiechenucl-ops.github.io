@@ -1,4 +1,6 @@
-/* 全局基础样式 */
+/* =========================
+   Global base styles
+   ========================= */
 * {
   box-sizing: border-box;
 }
@@ -7,8 +9,8 @@ body {
   margin: 0;
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  color: #222;
-  background-color: #faf7f2; /* 柔和米色背景，更高级 */
+  color: #1f2430;
+  background-color: #f5f6fa; /* 整体偏灰白的背景，而不是纯白或大蓝条 */
   line-height: 1.6;
 }
 
@@ -24,20 +26,19 @@ a {
   padding: 0 1.5rem;
 }
 
-/* =============================
-   顶部导航栏：透明毛玻璃风格 A
-   ============================= */
+/* =========================
+   顶部导航栏（风格 A）
+   ========================= */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 999;
-
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  color: #3f2b63; /* 深紫色标题 */
+  z-index: 20;
+  /* 半透明白色 + 轻微模糊，避免整条大蓝色 */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  color: #111827;
 }
 
 .header-inner {
@@ -50,64 +51,99 @@ a {
 .site-title {
   font-weight: 600;
   font-size: 1.1rem;
-  color: #3f2b63;
+  letter-spacing: 0.02em;
 }
 
-/* ===== 导航链接 ===== */
+/* 导航链接 */
 .nav {
   display: flex;
   gap: 1.5rem;
 }
 
+/* 主色：一点点暖橙红，和蓝色完全区分开 */
+:root {
+  --accent: #f9735b;
+}
+
 .nav-link {
+  position: relative;
   font-size: 0.95rem;
-  opacity: 0.8;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: 0.2s;
+  opacity: 0.88;
+  padding-bottom: 4px;
+  transition: opacity 0.2s ease;
+}
+
+/* 底部小下划线动画 */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.22s ease;
 }
 
 .nav-link:hover {
   opacity: 1;
-  color: #5c3fa3; /* 紫色 hover */
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-link.active {
-  font-weight: 600;
-  color: #5c3fa3;
-  border-bottom-color: #5c3fa3; /* 下划线紫色 */
+  font-weight: 500;
+  opacity: 1;
 }
 
-/* 首页：左文字右照片 */
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* =========================
+   首页 Hero：左文字右照片
+   ========================= */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem 0 2rem;
   gap: 2rem;
+
+  /* 卡片效果，比之前更“炫酷一点” */
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  padding: 3rem 2.5rem;
+  background: radial-gradient(circle at top left, #ffffff, #f7fafc);
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
 }
 
 .hero-text h1 {
   font-size: 2.3rem;
   margin: 0 0 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .hero-subtitle {
   font-size: 1.05rem;
   max-width: 520px;
   margin: 0;
+  color: #4b5563;
 }
 
-/* 右侧照片 */
+/* 右侧头像 */
 .hero-photo img {
   width: 260px;
   max-width: 100%;
-  border-radius: 12px;
+  border-radius: 18px;
   display: block;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
 }
 
-/* 欢迎区域 */
+/* 首页欢迎区 */
 .welcome {
   padding: 1.5rem 0 3rem;
 }
@@ -117,12 +153,16 @@ a {
   margin-bottom: 0.8rem;
 }
 
-/* 页脚 */
+/* =========================
+   页脚
+   ========================= */
 .site-footer {
-  border-top: 1px solid #e3e3e3;
-  padding: 0.75rem 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 0.9rem 0;
   font-size: 0.85rem;
-  color: #555;
+  color: #6b7280;
+  background: #ffffff;
+  margin-top: 2rem;
 }
 
 .footer-inner {
@@ -131,51 +171,72 @@ a {
   gap: 1rem;
 }
 
-/* =============================
-   About 页：大图 + CV 区域
-   ============================= */
+/* =========================
+   响应式：手机
+   ========================= */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+    height: auto;
+    gap: 0.4rem;
+  }
 
-/* About 页顶部大图 */
-.about-photo-large img {
-  width: 100%;
-  max-width: 620px;
-  border-radius: 14px;
-  display: block;
-  margin: 60px auto 50px auto;
-  box-shadow: 0px 4px 18px rgba(0,0,0,0.18);
+  .nav {
+    gap: 1rem;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: left;
+    padding: 2rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
-/* 区块统一间距 */
+/* =========================
+   About 页面 / 简历布局
+   ========================= */
+
+/* 每一大块之间留出更大空白 */
 .cv-section {
-  margin-top: 70px;
-  margin-bottom: 70px;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
+/* section 标题 */
 .section-title {
   margin-bottom: 25px;
-  font-size: 1.45rem;
-  color: #3f2b63;
-  font-weight: 600;
 }
 
-/* 时间圆角 pill */
+/* 时间 pill 样式 */
 .cv-time {
   font-weight: 600;
-  font-size: 0.90rem;
-  color: #5c3fa3;
-  background: #efe9ff;
+  font-size: 0.9rem;
+  color: #1f2937;
+  background: #e5f0ff;
   padding: 6px 14px;
-  border-radius: 18px;
+  border-radius: 999px;
   display: inline-block;
   white-space: nowrap;
   margin-bottom: 12px;
 }
 
-/* Education / Summer School 每条记录 */
+/* 每一条教育经历 / Summer School 等的整体块 */
 .cv-item {
   margin-bottom: 35px;
   padding-bottom: 22px;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .cv-item:last-child {
@@ -187,39 +248,35 @@ a {
   line-height: 1.6;
 }
 
-/* 奖项列表 */
+/* 奖学金等列表的间距 */
 .cv-list li {
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
-/* 专业活动 */
+/* inline 时间 pill（奖学金那一行里的小时间块） */
+.cv-time-inline {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #eef3ff;
+  color: #1f2937;
+  border-radius: 12px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+/* Professional activities 的有序列表 */
 .cv-ordered li {
   margin-bottom: 14px;
   line-height: 1.6;
 }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.5rem 0;
-    height: auto;
-    gap: 0.5rem;
-  }
-
-  .hero {
-    flex-direction: column-reverse;
-    text-align: left;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* About 页顶部大照片 */
+.about-photo-large img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 14px;
+  display: block;
+  margin: 32px auto 40px auto;
+  box-shadow: 0px 16px 38px rgba(15, 23, 42, 0.2);
 }
