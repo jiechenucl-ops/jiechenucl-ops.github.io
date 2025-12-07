@@ -141,3 +141,74 @@ a {
     align-items: flex-start;
   }
 }
+/* ===== More spacing between sections ===== */
+.cv-section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/* ===== Rounded Time Pills ===== */
+.cv-time {
+  font-weight: 600;
+  font-size: 0.90rem;
+  color: #1f4fa3;
+  background: #e8f1ff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+/* Layout for each education entry */
+.cv-item {
+  margin-bottom: 35px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cv-item:last-child {
+  border-bottom: none;
+}
+
+.cv-text p {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+/* Larger section title spacing */
+.section-title {
+  margin-bottom: 25px;
+}
+
+/* Scholarships spacing */
+.cv-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.cv-time-inline {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #eef3ff;
+  color: #2c4f9e;
+  border-radius: 12px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+/* Professional activities */
+.cv-ordered li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* About photo */
+.about-photo-large img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto 40px auto;
+  box-shadow: 0px 4px 18px rgba(0,0,0,0.15);
+}
