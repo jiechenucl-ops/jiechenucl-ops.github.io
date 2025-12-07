@@ -1,4 +1,4 @@
-/* 全局基础样式 */
+/* ========== Global base styles ========== */
 * {
   box-sizing: border-box;
 }
@@ -7,8 +7,8 @@ body {
   margin: 0;
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  color: #222;
-  background-color: #ffffff;
+  color: #222222;
+  background-color: #fbf7f2; /* 柔和一点的暖米色背景 */
   line-height: 1.6;
 }
 
@@ -24,9 +24,9 @@ a {
   padding: 0 1.5rem;
 }
 
-/* 顶部导航栏 */
+/* ========== 顶部导航栏 ========== */
 .site-header {
-  background-color: #1f6fb2; /* 类似对方那个蓝色 */
+  background-color: #3f2b63;  /* 深紫色导航条，避免和蓝色撞色 */
   color: #ffffff;
 }
 
@@ -53,6 +53,7 @@ a {
   opacity: 0.9;
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
 }
 
 .nav-link:hover {
@@ -61,10 +62,10 @@ a {
 
 .nav-link.active {
   font-weight: 500;
-  border-bottom-color: #ffffff;
+  border-bottom-color: #ffd78a; /* 柔和金色高亮 */
 }
 
-/* 首页：左文字右照片 */
+/* ========== 首页：左文字右照片 ========== */
 .hero {
   display: flex;
   align-items: center;
@@ -85,15 +86,16 @@ a {
   margin: 0;
 }
 
-/* 右侧照片 */
+/* 右侧照片（Home 页头像） */
 .hero-photo img {
   width: 260px;
   max-width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   display: block;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* 欢迎区域 */
+/* ========== 欢迎区域（Home 下半部分） ========== */
 .welcome {
   padding: 1.5rem 0 3rem;
 }
@@ -103,12 +105,13 @@ a {
   margin-bottom: 0.8rem;
 }
 
-/* 页脚 */
+/* ========== 页脚 ========== */
 .site-footer {
-  border-top: 1px solid #e3e3e3;
+  border-top: 1px solid #e3d9d0;
   padding: 0.75rem 0;
   font-size: 0.85rem;
-  color: #555;
+  color: #555555;
+  background: #faf2e9;
 }
 
 .footer-inner {
@@ -117,7 +120,7 @@ a {
   gap: 1rem;
 }
 
-/* 响应式：手机上上下排布 */
+/* ========== 响应式：手机上上下排布 ========== */
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
@@ -141,30 +144,48 @@ a {
     align-items: flex-start;
   }
 }
-/* ===== More spacing between sections ===== */
+
+/* ========== CV 通用 section 间距 ========== */
 .cv-section {
   margin-top: 60px;
   margin-bottom: 60px;
 }
 
-/* ===== Rounded Time Pills ===== */
+/* 标题稍微和正文拉开一点 */
+.section-title {
+  margin-bottom: 25px;
+}
+
+/* ========== 圆角时间 pill ========== */
 .cv-time {
   font-weight: 600;
-  font-size: 0.90rem;
-  color: #1f4fa3;
-  background: #e8f1ff;
+  font-size: 0.9rem;
+  color: #5c3fa3;           /* 深一点的紫色文字 */
+  background: #f2eafe;      /* 淡紫底色 */
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 999px;
   display: inline-block;
   white-space: nowrap;
   margin-bottom: 10px;
 }
 
-/* Layout for each education entry */
+/* 用于行内时间 pill（例如奖学金列表） */
+.cv-time-inline {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #f4ebff;
+  color: #5c3fa3;
+  border-radius: 999px;
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ========== 单条 CV 条目布局（Education 等） ========== */
 .cv-item {
   margin-bottom: 35px;
   padding-bottom: 22px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5ded6;
 }
 
 .cv-item:last-child {
@@ -176,39 +197,25 @@ a {
   line-height: 1.6;
 }
 
-/* Larger section title spacing */
-.section-title {
-  margin-bottom: 25px;
-}
-
-/* Scholarships spacing */
+/* ========== 奖学金 / Honors 列表 ========== */
 .cv-list li {
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
-.cv-time-inline {
-  display: inline-block;
-  padding: 3px 10px;
-  background: #eef3ff;
-  color: #2c4f9e;
-  border-radius: 12px;
-  margin-right: 10px;
-  font-weight: 600;
-}
-
-/* Professional activities */
+/* ========== Professional Activities（有序列表） ========== */
 .cv-ordered li {
   margin-bottom: 14px;
   line-height: 1.6;
 }
 
-/* About photo */
+/* ========== About 页顶部大照片 ========== */
+/* 容器类：about.html 里外面可以写 <div class="about-photo-large"> */
 .about-photo-large img {
   width: 100%;
-  max-width: 600px;
+  max-width: 420px;              /* 比之前 600px 小一圈 */
   border-radius: 14px;
   display: block;
-  margin: 0 auto 40px auto;
-  box-shadow: 0px 4px 18px rgba(0,0,0,0.15);
+  margin: 0 auto 40px auto;      /* 居中，底部留一点空间 */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
