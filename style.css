@@ -1,6 +1,4 @@
-/* =========================
-   Global base styles
-   ========================= */
+/* ========== 全局基础样式 ========== */
 * {
   box-sizing: border-box;
 }
@@ -9,8 +7,9 @@ body {
   margin: 0;
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  color: #1f2430;
-  background-color: #f5f6fa; /* 柔和米白色背景 */
+  color: #222;
+  /* 柔和的灰紫渐变背景，比纯白更有质感 */
+  background: linear-gradient(180deg, #f6f7fc 0%, #eef1f9 60%, #edf1fb 100%);
   line-height: 1.6;
 }
 
@@ -26,36 +25,27 @@ a {
   padding: 0 1.5rem;
 }
 
-
-/* =========================
-   顶部导航栏（柔和米白色风格）
-   ========================= */
+/* ========== 顶部导航栏 ========== */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
-
-  /* 和背景完美融合的米白色 */
-  background: rgba(243, 244, 247, 0.92);
+  z-index: 50;
+  /* 和背景统一的柔和条，不再是纯白 */
+  background-color: rgba(246, 247, 252, 0.95);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  color: #111827;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 60px;
 }
 
 .site-title {
   font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.02em;
+  font-size: 1.05rem;
 }
 
 /* 导航链接 */
@@ -64,93 +54,105 @@ a {
   gap: 1.5rem;
 }
 
-/* 主色 */
-:root {
-  --accent: #7c5cff; /* 更优雅的紫色强调色，比橙色更稳重 */
-}
-
 .nav-link {
-  position: relative;
   font-size: 0.95rem;
-  opacity: 0.85;
+  opacity: 0.9;
   padding-bottom: 4px;
-  transition: opacity 0.2s ease;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 999px;
-  transition: width 0.22s ease;
+  border-bottom: 2px solid transparent;
+  transition: opacity 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .nav-link:hover {
   opacity: 1;
-}
-
-.nav-link:hover::after {
-  width: 100%;
+  color: #111827;
 }
 
 .nav-link.active {
   font-weight: 500;
-  opacity: 1;
+  border-bottom-color: #ff7b62; /* 柔和橙色下划线 */
 }
 
-.nav-link.active::after {
-  width: 100%;
+/* ========== 首页：大卡片 Hero ========== */
+
+.home-hero {
+  padding: 3.5rem 0 2.5rem;
 }
 
-
-/* =========================
-   首页 Hero：左文字右照片
-   ========================= */
-.hero {
+/* 大卡片本体 */
+.home-hero-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.6rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-
-  margin-top: 2.5rem;
-  margin-bottom: 2rem;
-  padding: 3rem 2.5rem;
-
-  background: #ffffff;
-  border-radius: 22px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  gap: 2.5rem;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.16);
 }
 
+/* 左侧文字 */
 .hero-text h1 {
-  font-size: 2.3rem;
-  margin: 0 0 1rem;
+  font-size: 2.35rem;
+  margin: 0 0 1.2rem;
   font-weight: 600;
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
-  max-width: 520px;
+  font-size: 1.02rem;
+  max-width: 540px;
   margin: 0;
   color: #4b5563;
 }
 
-/* 右侧头像 */
+/* 右侧照片 */
 .hero-photo img {
   width: 260px;
   max-width: 100%;
   border-radius: 18px;
   display: block;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.3);
 }
 
+/* ========== 首页：三个小模块 ========== */
 
-/* 首页欢迎区 */
+.home-quick-links {
+  margin-top: 2.2rem;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.home-grid-item {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.home-grid-item h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+}
+
+.home-grid-item p {
+  margin: 0 0 0.8rem;
+  font-size: 0.93rem;
+  color: #4b5563;
+}
+
+.home-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ff7b62;
+}
+
+/* ========== 首页 welcome 区域 ========== */
+
 .welcome {
-  padding: 1.5rem 0 3rem;
+  padding: 2.8rem 0 3.2rem;
 }
 
 .welcome h2 {
@@ -158,17 +160,13 @@ a {
   margin-bottom: 0.8rem;
 }
 
-
-/* =========================
-   页脚
-   ========================= */
+/* ========== 页脚 ========== */
 .site-footer {
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
   padding: 0.9rem 0;
   font-size: 0.85rem;
-  color: #6b7280;
-  background: #ffffff;
-  margin-top: 2rem;
+  color: #4b5563;
+  background: rgba(246, 247, 252, 0.9);
 }
 
 .footer-inner {
@@ -177,70 +175,32 @@ a {
   gap: 1rem;
 }
 
+/* ========== About / CV 页面通用样式 ========== */
 
-/* =========================
-   响应式：手机
-   ========================= */
-@media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.5rem 0;
-    height: auto;
-    gap: 0.4rem;
-  }
-
-  .nav {
-    gap: 1rem;
-  }
-
-  .hero {
-    flex-direction: column-reverse;
-    text-align: left;
-    padding: 2rem 1.5rem;
-    margin-top: 1.5rem;
-  }
-
-  .hero-text h1 {
-    font-size: 1.9rem;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-
-/* =========================
-   About 页面 / 简历布局
-   ========================= */
-
+/* 各大栏之间多一点间隔 */
 .cv-section {
   margin-top: 60px;
   margin-bottom: 60px;
 }
 
-.section-title {
-  margin-bottom: 25px;
-}
-
+/* 圆角时间 pill */
 .cv-time {
   font-weight: 600;
   font-size: 0.9rem;
-  background: #eceaff;
-  color: #4a3bb3;
+  color: #1f4fa3;
+  background: #e8f1ff;
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: 20px;
   display: inline-block;
   white-space: nowrap;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
+/* 每一条 Education / Summer School / 等 */
 .cv-item {
   margin-bottom: 35px;
   padding-bottom: 22px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .cv-item:last-child {
@@ -252,31 +212,70 @@ a {
   line-height: 1.6;
 }
 
+/* 大标题与内容之间间距再大一点 */
+.section-title {
+  margin-bottom: 25px;
+}
+
+/* Scholarships & Awards 列表的间隔 */
 .cv-list li {
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
+/* 行内小时间 pill（比如奖学金年份） */
 .cv-time-inline {
   display: inline-block;
   padding: 3px 10px;
-  background: #eceaff;
-  color: #4a3bb3;
+  background: #eef3ff;
+  color: #2c4f9e;
   border-radius: 12px;
   margin-right: 10px;
   font-weight: 600;
 }
 
+/* Professional activities 的有序列表 */
 .cv-ordered li {
   margin-bottom: 14px;
   line-height: 1.6;
 }
 
+/* About 页面顶部大照片 */
 .about-photo-large img {
   width: 100%;
   max-width: 600px;
   border-radius: 14px;
   display: block;
-  margin: 32px auto 40px auto;
-  box-shadow: 0px 16px 38px rgba(15, 23, 42, 0.2);
+  margin: 0 auto 40px auto;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== 响应式调整 ========== */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 0.5rem 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .home-hero-card {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 2rem 1.8rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.95rem;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
