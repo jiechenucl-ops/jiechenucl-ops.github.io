@@ -262,3 +262,58 @@ a {
 .pub-journal {
   font-style: italic;
 }
+/* ========= Personal 页：卡片布局 ========= */
+
+.personal-intro {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.personal-section {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.personal-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.75rem 2rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+.personal-card img {
+  width: 260px;
+  max-width: 100%;
+  border-radius: 16px;
+  display: block;
+  object-fit: cover;
+}
+
+.personal-text h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.personal-text p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.97rem;
+}
+
+/* 手机端：改成上下排布 */
+@media (max-width: 768px) {
+  .personal-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .personal-card img {
+    width: 100%;
+  }
+}
