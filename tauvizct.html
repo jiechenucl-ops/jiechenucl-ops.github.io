@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <!-- Top navigation bar (consistent across pages; TauViz-CT highlighted here) -->
   <header class="site-header">
@@ -27,10 +28,13 @@
     <section class="container research-hero">
       <h1>TauViz-CT</h1>
       <p>
-        TauViz-CT is a lightweight demo tool for visualizing 3D porous microstructures
-        with speed-colored streamlines derived from <em>v = -∇C</em> (a pseudo-flow field from a 3D concentration map).
-        The rendering overlays a semi-transparent solid skeleton and optional “comet-tail” glow points,
-        producing an intuitive “flowing inside pores” effect for presentations and method demonstrations.
+        TauViz-CT is a lightweight visualization demo for 3D porous microstructures using speed-colored streamlines
+        derived from <em>v = &minus;&nabla;C</em> (a pseudo-flow field computed from a 3D concentration map).
+        The rendering overlays a semi-transparent solid skeleton and optional “comet-tail” glow points, producing an
+        intuitive “flowing inside pores” effect for presentations and method demonstrations.
+      </p>
+      <p style="margin-top:10px;">
+        <strong>Designed by Jie Chen.</strong>
       </p>
     </section>
 
@@ -38,71 +42,102 @@
     <section class="container publications-section">
       <h2 class="section-title">Demo video</h2>
 
+      <!-- Keep your current size/placement (do not change) -->
       <video controls style="width:100%; max-width:980px; border-radius:14px;">
         <source src="VIDEO/streamlines_tool.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
-      <p style="margin-top:14px;">
-        If the video does not load, please refresh the page after GitHub Pages finishes deployment
-        (it may take 1–3 minutes after a commit).
+      <p style="margin-top:10px; color:#8b0000;">
+        If the video does not load, please refresh the page after GitHub Pages finishes deployment (it may take 1–3 minutes after a commit).
       </p>
     </section>
 
     <!-- Download -->
-    <section class="container research-grid">
-      <div class="research-card">
-        <h2 class="section-title">Download</h2>
-        <p>
-          Download the script (single-file Python tool):
-          <a href="downloads/streamlines_tool.py" download="streamlines_tool.py">
-            <strong>streamlines_tool.py</strong>
-          </a>
-        </p>
-        <p>
-          The script reads a 3D binary volume (0 = pore, 1 = solid) and a 3D Cmap (TIFF or MAT),
-          builds a pseudo-vector field, generates streamlines inside pores, and exports an MP4 video.
-        </p>
-      </div>
+    <section class="container publications-section">
+      <h2 class="section-title">Download</h2>
+
+      <p>
+        Download the script (single-file Python tool): <strong>streamlines_tool.py</strong>
+      </p>
+
+      <!-- Download button -->
+      <p style="margin:14px 0 6px 0;">
+        <a
+          href="downloads/streamlines_tool.py"
+          download
+          style="
+            display:inline-block;
+            padding:10px 16px;
+            border-radius:10px;
+            background:#111;
+            color:#fff;
+            text-decoration:none;
+            font-weight:600;
+            letter-spacing:0.2px;
+          "
+        >
+          ⬇ Download streamlines_tool.py
+        </a>
+      </p>
+
+      <p style="margin-top:10px;">
+        The script reads a 3D binary volume (0 = pore, 1 = solid) and a 3D concentration map (Cmap; TIFF or MAT),
+        builds a pseudo-vector field from <em>v = &minus;&nabla;C</em>, generates streamlines inside pores,
+        and exports an MP4 video.
+      </p>
     </section>
 
     <!-- How to run -->
     <section class="container publications-section">
       <h2 class="section-title">How to run locally</h2>
 
-      <p>1) Install dependencies (recommended: in a clean Python environment):</p>
-      <pre>
-python -m pip install numpy matplotlib tifffile pillow imageio imageio-ffmpeg scikit-image scipy
-      </pre>
-
-      <p>2) Put your input files in the same folder as <strong>streamlines_tool.py</strong> (or edit paths in CONFIG), then run:</p>
-      <pre>
-python streamlines_tool.py
-      </pre>
-
       <p>
-        3) Edit parameters in the <strong>CONFIG</strong> block (near the top of the script). Common settings:
+        You can run TauViz-CT on your own <strong>3D CT data</strong> as long as you provide:
+        (i) a <strong>3D binary volume</strong> (0 = pore, 1 = solid) and (ii) a <strong>3D concentration map</strong> (Cmap).
+        This is intended for qualitative visualization (not a CFD solver), and the visual pattern depends on how your Cmap is defined.
       </p>
-      <ul class="research-list">
-        <li><strong>BINARY_PATH</strong>, <strong>CMAP_PATH</strong>, <strong>OUTPUT_MP4</strong> (input/output files)</li>
-        <li><strong>VOXEL_UM</strong> (voxel size, affects aspect ratio and “boxy” appearance)</li>
-        <li><strong>N_LINES</strong>, <strong>STEP</strong>, <strong>N_STEPS</strong>, <strong>MIN_POINTS</strong> (streamline density/length)</li>
-        <li><strong>ENABLE_GLOW</strong>, <strong>GLOW_WINDOW</strong>, <strong>GLOW_SPEED</strong>, <strong>GLOW_SIZE</strong> (blue “comet-tail” dots)</li>
-        <li><strong>DS_MESH</strong>, <strong>DS_FIELD</strong>, <strong>SMOOTH_SIGMA</strong> (speed/quality trade-offs)</li>
+
+      <p style="margin-top:10px;">
+        <strong>1) Install dependencies</strong> (recommended: in a clean Python environment):
+      </p>
+
+      <pre><code>python -m pip install numpy matplotlib tifffile pillow imageio imageio-ffmpeg scikit-image scipy</code></pre>
+
+      <p style="margin-top:10px;">
+        <strong>2) Put inputs next to the script</strong> (or edit file paths in the CONFIG block inside the script), then run:
+      </p>
+
+      <pre><code>python streamlines_tool.py</code></pre>
+
+      <p style="margin-top:10px;">
+        <strong>3) Tune parameters in the CONFIG block</strong> (near the top of the script). Common settings:
+      </p>
+
+      <ul style="line-height:1.7;">
+        <li><strong>BINARY_PATH, CMAP_PATH, OUTPUT_MP4</strong>: input/output files.</li>
+        <li><strong>VOXEL_UM</strong>: voxel size (sets aspect ratio; wrong value can make the shape look “boxy”).</li>
+        <li><strong>N_LINES, STEP, N_STEPS, MIN_POINTS</strong>: streamline density/length (more lines = richer but slower).</li>
+        <li><strong>ENABLE_GLOW, GLOW_WINDOW, GLOW_SPEED, GLOW_SIZE</strong>: the blue “comet-tail” dots (turn off if you want lines only).</li>
+        <li><strong>DS_MESH, DS_FIELD, SMOOTH_SIGMA</strong>: speed/quality trade-offs (higher downsampling = faster but coarser).</li>
+      </ul>
+
+      <p style="margin-top:10px;">
+        <strong>Tip:</strong> if you get very few streamlines, try increasing <strong>N_LINES</strong>,
+        decreasing <strong>MIN_POINTS</strong>, and/or increasing <strong>SMOOTH_SIGMA</strong>.
+      </p>
+    </section>
+
+    <!-- Notes -->
+    <section class="container publications-section">
+      <h2 class="section-title">Notes</h2>
+      <ul style="line-height:1.7;">
+        <li>This is a visualization demo intended for qualitative illustration (not a CFD solver).</li>
+        <li>The pseudo-flow field is derived from <em>&minus;&nabla;C</em>; interpretation depends on your physical meaning of the Cmap boundary conditions.</li>
+        <li>If you use this demo in slides/papers, please cite your CT/transport workflow (e.g., TauFactor/Avizo/your pipeline) accordingly.</li>
       </ul>
     </section>
 
-    <!-- Notes / citation -->
-    <section class="container research-grid">
-      <div class="research-card">
-        <h2 class="section-title">Notes</h2>
-        <ul class="research-list">
-          <li>This is a visualization demo intended for qualitative illustration (not a CFD solver).</li>
-          <li>The vector field is derived from the gradient of Cmap; interpretation depends on your physical model and boundary conditions.</li>
-          <li>If you use this demo in slides/papers, please cite your CT/transport workflow (e.g., TauFactor/Avizo/your pipeline) accordingly.</li>
-        </ul>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
